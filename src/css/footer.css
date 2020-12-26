@@ -1,0 +1,112 @@
+body {
+  font-family: "Barlow", sans-serif;
+  line-height: 1.65;
+}
+
+footer {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  right: 0;
+  bottom: 0;
+  padding-top: 1.2em;
+  padding-right: 1.2em;
+  background-color: rgba(250, 248, 247, 0.9);
+  color: #595959;
+}
+@media screen and (max-width: 650px) {
+  footer {
+    position: relative;
+    padding-right: 0;
+  }
+  footer > div {
+    margin-left: 0;
+  }
+}
+
+.copyright {
+  margin-left: 1.2em;
+  margin-bottom: 1.2em;
+  line-height: 1.4em;
+  padding-right: 0.4em;
+  padding-left: 0.4em;
+}
+
+.social {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-left: 1.2em;
+}
+.social svg {
+  transition: fill 0.3s 0s ease-out, transform 0.1s 0s ease-in;
+  fill: #959595;
+  width: 1.5em;
+  height: 1.5em;
+}
+.social a:hover svg {
+  transform: scale(1.2);
+}
+.social a:hover .twitter-icon svg {
+  fill: #1da1f2;
+}
+.social a:hover .facebook-icon svg {
+  fill: #3b5998;
+}
+.social a:hover .linkedin-icon svg {
+  fill: #0077b5;
+}
+.social a:hover .instagram-icon svg {
+  fill: #e4405f;
+}
+.social a:hover .github-icon svg {
+  fill: #181717;
+}
+.social a:hover .stackoverflow-icon svg {
+  fill: #fe7a16;
+}
+.social a:hover .codepen-icon svg {
+  fill: #000000;
+}
+.social a:hover .gmail-icon svg {
+  fill: #d14836;
+}
+.social a {
+  position: relative;
+  margin-right: 1.2em;
+  margin-bottom: 1.2em;
+  color: #206486;
+}
+.social a i {
+  position: relative;
+  z-index: 1;
+  padding-top: 1.2em;
+}
+@media screen and (max-width: 650px) {
+  .social a .icon-text {
+    display: none;
+  }
+}
+@media screen and (min-width: 651px) {
+  .social a .icon-text {
+    position: absolute;
+    z-index: 0;
+    background-color: rgba(250, 248, 247, 0.9);
+    line-height: 1.4em;
+    padding-right: 0.4em;
+    transform-origin: 0% -25%;
+    transform: rotate(-60deg);
+    top: 10em;
+    opacity: 0;
+    transition: top 0.3s 0.1s ease-in, opacity 0.3s 0s ease,
+      transform 0.3s 0s ease;
+  }
+  .social a:hover .icon-text {
+    transform: rotate(-90deg);
+    top: -5px;
+    left: -3px;
+    opacity: 1;
+    transition: top 0.3s 0s ease-in-out, opacity 0.5s 0.1s ease-in-out;
+  }
+}

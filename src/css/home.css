@@ -1,0 +1,37 @@
+.hero {
+  height: 100vh;
+}
+
+.text-align {
+  text-align: center;
+}
+
+.open-sans-bold {
+  font-family: Opensans-bold;
+}
+
+.margin-2 {
+  margin: 3rem;
+}
+
+.font-size {
+  font-size: 2.5rem;
+}
+
+h1 {
+  font-family: Opensans-bold;
+}
+
+#tsparticles {
+  height: 100vh;
+}
+
+.index-footer {
+  width: 50%;
+  margin: auto;
+  position: relative;
+}
+
+.margin {
+  margin-bottom: 1vh;
+}

@@ -1,0 +1,33 @@
+{
+    "title": [
+        "A simple rectangles problem"
+    ],
+    "link": [
+        "https://medium.com/@gkverma1094/a-simple-rectangles-problem-1b37964857f4?source=rss-445df3ce30f2------2"
+    ],
+    "guid": [
+        {
+            "_": "https://medium.com/p/1b37964857f4",
+            "$": {
+                "isPermaLink": "false"
+            }
+        }
+    ],
+    "category": [
+        "programming",
+        "algorithms",
+        "recursion"
+    ],
+    "dc:creator": [
+        "Gaurav K. Verma"
+    ],
+    "pubDate": [
+        "Wed, 20 Nov 2019 12:49:22 GMT"
+    ],
+    "atom:updated": [
+        "2019-11-20T12:52:04.869Z"
+    ],
+    "content:encoded": [
+        "<p><strong>Problem Statement -</strong></p><p>Find the total area covered by rectangles on given axis?</p><p>Well, it seems easy, but its not. Think about what if multiple rectangle overlapping on it. We need to remove the areas of overlapping on each others. But still we need to include those area which is removed many times because of multiple rectangle overlap. Sounds Complicated ?</p><figure><img alt=\"\" src=\"https://cdn-images-1.medium.com/max/800/1*Nk1oS_Wu5lK7e2UFLNn6KQ.png\" /><figcaption>Overlapping Rectangles</figcaption></figure><p>So, in here if we try to calculate total area covered by rectangles, that will be something like this :</p><p><strong>Total Area covered by Rectangles = </strong>area(A1) + area(A2) + area(A3) + area(A4) — area(A1 overlap A2) — area(A1 overlap A3) — area(A2 overlap A3) + Area(A1 overlap A2 and A2)</p><p>So, i guess now you got the idea what we are talking here. Right ?</p><p>Mathematically, it seems easy to calculate but its not. Atleast for me.</p><p>I’m going to solve it with a different approach. I called it Cover Box Algorithm, you can call whatever you want.</p><p>Basically, i’m going to make a rectangle which contains all these rectangle and then i’m going to clip the area which is not covered by rectangles. Simple right</p><figure><img alt=\"\" src=\"https://cdn-images-1.medium.com/max/800/1*ehAGHoaJV923wpFmBJ92VQ.png\" /><figcaption>Boundary Rectangle deleting white area</figcaption></figure><p>So we are going to remove the white part from the boundary rectangle to get the total area. Python code for algorithm is:</p><iframe src=\"\" width=\"0\" height=\"0\" frameborder=\"0\" scrolling=\"no\"><a href=\"https://medium.com/media/99191986e48163362408838f289784a8/href\">https://medium.com/media/99191986e48163362408838f289784a8/href</a></iframe><p>or you can go <a href=\"https://gist.github.com/glearner/1ea67478d10fccf5e47cee1ab2908886.js\">https://gist.github.com/glearner/1ea67478d10fccf5e47cee1ab2908886.js</a></p><p>Thanks for reading.</p><img src=\"https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=1b37964857f4\" width=\"1\" height=\"1\" alt=\"\">"
+    ]
+}

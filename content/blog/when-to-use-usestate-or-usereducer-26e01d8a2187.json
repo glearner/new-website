@@ -1,0 +1,35 @@
+{
+    "title": [
+        "WHEN TO USE USESTATE OR USEREDUCER?"
+    ],
+    "link": [
+        "https://medium.com/@gkverma1094/when-to-use-usestate-or-usereducer-26e01d8a2187?source=rss-445df3ce30f2------2"
+    ],
+    "guid": [
+        {
+            "_": "https://medium.com/p/26e01d8a2187",
+            "$": {
+                "isPermaLink": "false"
+            }
+        }
+    ],
+    "category": [
+        "react",
+        "reactjs",
+        "javascript",
+        "programming",
+        "react-native"
+    ],
+    "dc:creator": [
+        "Gaurav K. Verma"
+    ],
+    "pubDate": [
+        "Sat, 23 May 2020 13:49:00 GMT"
+    ],
+    "atom:updated": [
+        "2020-05-23T13:49:00.877Z"
+    ],
+    "content:encoded": [
+        "<figure><img alt=\"\" src=\"https://cdn-images-1.medium.com/max/1024/1*_Vmk5Hs_6dqbf-lqF92IKg.jpeg\" /></figure><p>Everyone starting out with React Hooks quickly gets to know the useState hook. It’s there to update state in functional components by setting the initial state and returning the actual state and an updater function.</p><pre>import React, { useState } from &#39;react&#39;;</pre><pre>const Counter = () =&gt; {<br>const [count, setCount] = useState(0);</pre><pre>const handleIncrease = () =&gt; {<br>setCount(count =&gt; count + 1);<br>};</pre><pre>const handleDecrease = () =&gt; {<br>setCount(count =&gt; count - 1);<br>};</pre><pre>return (<br>&lt;div&gt;<br>&lt;h1&gt;Counter with useState&lt;/h1&gt;<br>&lt;p&gt;Count: {count}&lt;/p&gt;<br>&lt;div&gt;<br>&lt;button <em>type</em>=&quot;button&quot; <em>onClick</em>={handleIncrease}&gt;+&lt;/button&gt;<br>&lt;button <em>type</em>=&quot;button&quot; <em>onClick</em>={handleDecrease}&gt;-&lt;/button&gt;<br>&lt;/div&gt;<br>&lt;/div&gt;<br>);<br>};</pre><pre>export default Counter;</pre><p>The useReducer hook also can be used to update the state, but it does so in a <strong>more sophisticated</strong> way: it accepts a reducer function and an initial state, and it returns the actual state and a dispatch function. The dispatch function alters state in an implicit way by <strong>mapping actions to state transitions:</strong></p><pre>import React, { useReducer } from &#39;react&#39;;</pre><pre>const counterReducer = (state, action) =&gt; {<br>switch (action.type) {<br>case &#39;INCREASE&#39;: return { ...state, count: state.count + 1 };</pre><pre>case &#39;DECREASE&#39;: return { ...state, count: state.count - 1 };<br>default: throw new Error();<br>}<br>};</pre><pre>const Counter = () =&gt; {<br>const [state, dispatch] = useReducer(counterReducer, { count: 0 });<br>const handleIncrease = () =&gt; {<br>dispatch({ type: &#39;INCREASE&#39; });<br>};</pre><pre>const handleDecrease = () =&gt; {<br>dispatch({ type: &#39;DECREASE&#39; });<br>};</pre><pre>return (<br>&lt;div&gt;<br>&lt;h1&gt;Counter with useReducer&lt;/h1&gt;<br>&lt;p&gt;Count: {state.count}&lt;/p&gt;<br>&lt;div&gt;<br>&lt;button <em>type</em>=&quot;button&quot; <em>onClick</em>={handleIncrease}&gt;+&lt;/button&gt;<br>&lt;button <em>type</em>=&quot;button&quot; <em>onClick</em>={handleDecrease}&gt;-&lt;/button&gt;<br>&lt;/div&gt;<br>&lt;/div&gt;<br>);<br>};<br>export default Counter;</pre><h3>SIMPLE VS. COMPLEX STATE WITH HOOKS</h3><p>The reducer example encapsulated the count property into a state object, but we could have done this more simply by using count as the actual state. Refactoring to eliminate the state object and code count as a JavaScript integer primitive, we see that this use case doesn&#39;t involve managing a complex state:</p><pre>import React, { useReducer } from &#39;react&#39;;<br>const counterReducer = (state, action) =&gt; {<br>switch (action.type) {</pre><pre>case &#39;INCREASE&#39;:<br>return state + 1;</pre><pre>case &#39;DECREASE&#39;:<br>return state - 1;</pre><pre>default:throw new Error();<br>}<br>};</pre><pre>const Counter = () =&gt; {</pre><pre>const [count, dispatch] = useReducer(counterReducer, 0);</pre><pre>const handleIncrease = () =&gt; {</pre><pre>dispatch({ type: &#39;INCREASE&#39; });</pre><pre>};</pre><pre>const handleDecrease = () =&gt; {</pre><pre>dispatch({ type: &#39;DECREASE&#39; });</pre><pre>};</pre><pre>return (<br>&lt;div&gt;<br>&lt;h1&gt;Counter with useReducer&lt;/h1&gt;<br>&lt;p&gt;Count: {count}&lt;/p&gt;<br>&lt;div&gt;<br>&lt;button <em>type</em>=&quot;button&quot; <em>onClick</em>={handleIncrease}&gt;+&lt;/button&gt;</pre><pre>&lt;button <em>type</em>=&quot;button&quot; <em>onClick</em>={handleDecrease}&gt;-&lt;/button&gt;<br>&lt;/div&gt;<br>&lt;/div&gt;<br>);<br>};</pre><pre>export default Counter;</pre><p>Anyway, I would argue that <strong>once you move past managing a primitive (i.e. a string, integer, or boolean) and instead must manage a complex object (e.g. with arrays and additional primitives), you may be better of using useReducer</strong>. Perhaps a good rule of thumb is:</p><ul><li>Use useState whenever you manage a JS primitive</li><li>Use useReducer whenever you manage an object or array</li></ul><p>The decision of whether to use useState or useReducer isn’t always black and white; there are many shades of grey. I hope this article has given you a better understanding of when to use useState or useReducer.</p><p>If you want to support me, please give claps to my blog and follow me,</p><p><strong>“Lets code better”</strong></p><img src=\"https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=26e01d8a2187\" width=\"1\" height=\"1\" alt=\"\">"
+    ]
+}

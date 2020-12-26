@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "OpenSans-Thin";
+  src: url("../assets/fonts/OpenSans-Light.ttf");
+  font-style: normal;
+  font-weight: 100;
+}
+@font-face {
+  font-family: "OpenSans-Light";
+  src: url("../assets/fonts/OpenSans-Light.ttf");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "OpenSans-Regular";
+  src: url("../assets/fonts/OpenSans-Regular.ttf");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "OpenSans-ExtraBold";
+  src: url("../assets/fonts/OpenSans-ExtraBold.ttf");
+  font-style: normal;
+  font-weight: 800;
+}
+@font-face {
+  font-family: "OpenSans-Semi-Bold";
+  src: url("../assets/fonts/OpenSans-SemiBold.ttf");
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: "OpenSans-Bold";
+  src: url("../assets/fonts/OpenSans-Bold.ttf");
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "OpenSans-Bold-Italic";
+  src: url("../assets/fonts/OpenSans-BoldItalic.ttf");
+  font-style: normal;
+  font-weight: 700;
+}

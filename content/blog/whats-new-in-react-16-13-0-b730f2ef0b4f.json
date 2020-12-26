@@ -1,0 +1,34 @@
+{
+    "title": [
+        "What’s new in React 16.13.0"
+    ],
+    "link": [
+        "https://medium.com/@gkverma1094/whats-new-in-react-16-13-0-b730f2ef0b4f?source=rss-445df3ce30f2------2"
+    ],
+    "guid": [
+        {
+            "_": "https://medium.com/p/b730f2ef0b4f",
+            "$": {
+                "isPermaLink": "false"
+            }
+        }
+    ],
+    "category": [
+        "react",
+        "experimental",
+        "javascript",
+        "reactjs"
+    ],
+    "dc:creator": [
+        "Gaurav K. Verma"
+    ],
+    "pubDate": [
+        "Mon, 02 Mar 2020 23:28:53 GMT"
+    ],
+    "atom:updated": [
+        "2020-03-02T23:40:34.432Z"
+    ],
+    "content:encoded": [
+        "<p>Well, Reactjs become one of best javascript framework, i ever used. It’s simple and elegant. But we have also accept the framework fatigue with it. React is changing very rapidly with every version of it. Most of people have no idea what we got in new version of Reactjs.</p><p>So, we are going to see new features which added to Reactjs 16.13.0.</p><h3>Introducing Concurrent Mode (Experimental)</h3><p>By the way if you don’t know what is concurrency in reactjs mean, let me explain you. So, concurrent mode is a set of new features that help React apps stay responsive and gracefully adjust to the user’s device capabilities and network speed. You can check react fiber for this new feature implementation.</p><h4>Blocking vs Interruptible Rendering</h4><p>To explain Concurrent Mode, i’ll use version control as a metaphor. If you work on a team, you probably use a version control system like Git and work on branches. When a branch is ready, you can merge your work into master so that other people can pull it.</p><p>Before version control existed, the development workflow was very different. There was no concept of branches. If you wanted to edit some files, you had to tell everyone not to touch those files until you’ve finished your work. You couldn’t even start working on them concurrently with that person — you were literally <em>blocked</em> by them.</p><p>This illustrates how UI libraries, including React, typically work today. Once they start rendering an update, including creating new DOM nodes and running the code inside components, they can’t interrupt this work. I’ll call this approach “blocking rendering”.</p><p>In Concurrent Mode, rendering is not blocking. It is interruptible. This improves the user experience. It also unlocks new features that weren’t possible before.</p><p>You can check more on <a href=\"https://reactjs.org/docs/concurrent-mode-patterns.html\">here</a>.</p><h3>Renaming Unsafe Lifecycle Methods</h3><p>Since last year, react developers made some lifecycle to unsafe. Basically three of them, i remember :</p><p>componentWillMount → UNSAFE_componentWillMount</p><p>componentWillReceiveProps → UNSAFE_componentWillReceiveProps</p><p>componentWillUpdate → UNSAFE_componentWillUpdate</p><p>React 16.9 does not know componentWillMount anymore, and the old names are going to break your code. So now what, our code is going to break because we used these cycles in many components. The answer is NO. How ?</p><p>Well, react provided a tool called codemod. So if you are using earlier version of react 16.9 and you want to update to latest version, and you have to convert all componentWill to UNSAFE_componentWill.</p><p>Just run a simple command</p><pre>npx react-codemod rename-unsafe-lifecycles</pre><figure><img alt=\"\" src=\"https://cdn-images-1.medium.com/max/884/1*onn2uqFFuTX-9fBJu3HBaw.gif\" /></figure><p>The new names like UNSAFE_componentWillMount <strong>will keep working in both React 16.9 and in React 17.x</strong>.</p><h3>Scheduler (Experimental)</h3><p>So, these experimental feature are planned to get merge in React 17.x.</p><p>Scheduler is added to react because they want to improve queue performance by switching its internal data structure to a min binary heap. Till now, you can usepostMessage loop with short intervals instead of attempting to align to frame boundaries with requestAnimationFrame. But since its in experimental, I will not like to add this in my project because who know when they might get dropped.</p><p>But if they included it in react, our render performance will increased and animation will be more smoother. FYI, they just trying to change slower algorithm to faster one.</p><h3>Normal Bug Fixes</h3><p>Lots of bug fixed now which where in earlier version. Some of fixes are :-</p><p>Deprecate React.createFactory()</p><p>Warn when changes in style may cause an unexpected collision</p><p>Warn when a function component is updated during another component’s render phase</p><p>Fixed onMouseEnter being fired on disabled buttons.</p><p>Call shouldComponentUpdate twice when developing in StrictMode.</p><p>Show component stacks in more warnings.</p><p>Adjust SuspenseList CPU bound heuristic.</p><p>Fixed React.memo components dropping updates when interrupted by a higher priority update.</p><p>And many others. If you want to see full list, visit <a href=\"https://github.com/facebook/react/blob/master/CHANGELOG.md#16130-february-26-2020\">here</a></p><p>If you like this blog, please give me a clap. :)</p><img src=\"https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=b730f2ef0b4f\" width=\"1\" height=\"1\" alt=\"\">"
+    ]
+}

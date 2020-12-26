@@ -1,0 +1,35 @@
+{
+    "title": [
+        "Service workers: A detailed look"
+    ],
+    "link": [
+        "https://medium.com/@gkverma1094/service-workers-a-detailed-look-83336036c1af?source=rss-445df3ce30f2------2"
+    ],
+    "guid": [
+        {
+            "_": "https://medium.com/p/83336036c1af",
+            "$": {
+                "isPermaLink": "false"
+            }
+        }
+    ],
+    "category": [
+        "javascript",
+        "reactjs",
+        "coding-interviews",
+        "react",
+        "service-worker"
+    ],
+    "dc:creator": [
+        "Gaurav K. Verma"
+    ],
+    "pubDate": [
+        "Sat, 12 Sep 2020 07:05:28 GMT"
+    ],
+    "atom:updated": [
+        "2020-09-12T07:05:28.767Z"
+    ],
+    "content:encoded": [
+        "<p>Whenever I use CRA(Create React App), I always wonder why we use <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/unregister\"><strong>serviceWorker.unregister()</strong></a>.</p><figure><img alt=\"\" src=\"https://cdn-images-1.medium.com/max/700/1*djvSG40sdF6WCPTGrn9VWg.png\" /><figcaption>Lifecycle of service worker</figcaption></figure><p>I am going to take you through what a service worker is, why it was created, and how you can use it in your apps.</p><h3>What is a service worker?</h3><p>A service worker is a script that the client (your browser) runs in the background separate from the web page. Operating in the background separate from the web page enables you to use features that don’t actually require a web page or user interaction to trigger — like a <a href=\"https://developers.google.com/web/fundamentals/push-notifications/\">push notification</a> or <a href=\"https://developers.google.com/web/updates/2015/12/background-sync\">background sync</a>.</p><p>Why is this API such an exciting development? Because it allows you to support offline experiences, giving engineers and developers end-to-end control over the user’s interactions with the app. A service worker enables you to run JavaScript before a page even exists, makes your site faster, and allows you to display content even if there is no internet connection.</p><h3><strong>Key Properties of the </strong>service worker</h3><p>As you can tell, service workers are extremely important in creating a Progressive Web App (learn more about PWA’s <a href=\"https://developers.google.com/web/progressive-web-apps/\">here</a>). Before I dive into how to implement a service worker, here are some <a href=\"https://github.com/w3c/ServiceWorker/blob/master/explainer.md\">key traits and properties</a> that it has:</p><ul><li>Runs in its own global script context</li><li>Is not directly tied to any particular page</li><li>Cannot access the DOM</li><li>Is event-driven (it’s terminated when it’s not in use and run again when needed)</li><li>Is <strong>HTTPS</strong> only</li></ul><p>Quick Note: Service workers in Mozilla are not accessible in the private window, and chrome is also removing support.</p><p>There are some pretty interesting things to note about a service worker. Since it can’t access the DOM directly, it needs a workaround to communicate with the pages it controls. It does this by responding to messages sent via the <a href=\"https://html.spec.whatwg.org/multipage/workers.html#dom-worker-postmessage\">postMessage</a> interface (through a MessagePort), allowing those pages it’s controlling to manipulate the DOM as directed. Additionally, being event-driven, you can’t rely on the state in a service worker’s onfetch and onmessage handlers to persist any data. According to the React documentation, if there is information that you need to persist and reuse across restarts, service workers have access to the <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API\">IndexedDB API</a>.</p><p>It’s clear that service workers are complicated yet powerful tools that we have at our disposal. What’s even better? React sets us up for success with implementing them just by running create-react-app. In this next section, I’ll walk you through how to set up a service worker with your React app.</p><h3>How do I use a service worker?</h3><p>After creating a new React app, you’ll see the following file structure created for you:</p><figure><img alt=\"\" src=\"https://cdn-images-1.medium.com/max/700/1*U-_GWWNd5aU_OKW3_addpg.png\" /><figcaption>The file structure automatically created for you when you build a new React app.</figcaption></figure><p>By default, the React build process will generate a serviceWorker.js file in your src folder. However, the default for the service worker is unregistered, meaning that it won’t yet be able to take control of your web app.</p><p>So, we’ll need to first opt-in to the offline-first behavior. In your code look forsrc/index.As it states, switching serviceWorker.unregister() to serviceWorker.register() will allow you to opt into using the service worker.</p><p>Without React’s handy provided code, you’d have to code the entire service worker lifecycle. Here’s a brief overview on what that looks like <a href=\"https://developers.google.com/web/fundamentals/primers/service-workers/\">via Google documentation</a>:</p><figure><img alt=\"\" src=\"https://cdn-images-1.medium.com/max/700/1*nXBPefTxfOZpcQ5YKiw60A.png\" /></figure><p>So, you’d have to manually code the register → install → cache &amp; return requests → so on and so forth process.</p><p>Luckily, we have React! If you pop into your src/serviceWorker.js file, you can see a lot of things are going there.</p><p>The benefits of opting-in to using the service worker are great, including creating faster and more reliable web apps and providing a more engaging mobile experience. However, just like most functionalities, there are some things to take into account if you decide to opt-in to service worker registration. You can learn about those in the official React.js documentation <a href=\"https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app#offline-first-considerations\">here</a>.</p><p>So, the next time you get a push notification when your friend likes your Instagram or you start receiving ads for a local business the minute you set foot in that store’s town — you have service helpers to thank for that!</p><img src=\"https://medium.com/_/stat?event=post.clientViewed&referrerSource=full_rss&postId=83336036c1af\" width=\"1\" height=\"1\" alt=\"\">"
+    ]
+}
